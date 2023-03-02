@@ -1,12 +1,12 @@
 [submodule "glfw"]
 	path = glfw
-	url = https://github.com/glfw/glfw
+	url = https://github.com/glfw/glfw.git
 [submodule "SOIL2"]
 	path = SOIL2
-	url = https://github.com/SpartanJ/SOIL2
+	url = https://github.com/SpartanJ/SOIL2.git
 [submodule "glad"]
 	path = glad
-	url = https://github.com/Dav1dde/glad
+	url = https://github.com/Dav1dde/glad.git
 [submodule "openal-soft"]
 	path = openal-soft
 	url = https://github.com/kcat/openal-soft.git
