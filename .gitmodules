@@ -1,0 +1,21 @@
+[submodule "glfw"]
+	path = glfw
+	url = https://github.com/glfw/glfw
+[submodule "SOIL2"]
+	path = SOIL2
+	url = https://github.com/SpartanJ/SOIL2
+[submodule "glad"]
+	path = glad
+	url = https://github.com/Dav1dde/glad
+[submodule "openal-soft"]
+	path = openal-soft
+	url = https://github.com/kcat/openal-soft.git
+[submodule "0.1.3j-core"]
+	path = 0.1.3j-core
+	url = https://github.com/MCPE-RE/0.1.3j-core.git
+[submodule "assets"]
+	path = assets
+	url = https://github.com/MCPE-RE/0.1.3j-assets-archive
+[submodule "sfx"]
+	path = sfx
+	url = https://github.com/MCPE-RE/0.1.3j-sfx-archive
