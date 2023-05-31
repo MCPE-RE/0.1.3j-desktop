@@ -4,7 +4,8 @@
             "name": "0.3.1j-desktop",
             "includePath": [
                 "${workspaceFolder}/build/gladsources/glad_egl_15_gl1_15/include",
-                "${workspaceFolder}/glfw/include"
+                "${workspaceFolder}/glfw/include",
+                "${workspaceFolder}/stb"
             ],
             "defines": [
                 "USE_DESKTOP_GL"

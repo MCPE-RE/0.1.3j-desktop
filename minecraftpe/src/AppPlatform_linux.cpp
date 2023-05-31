@@ -1,12 +1,13 @@
 #include "AppPlatform_linux.h"
 #include <iostream>
 #include "Gvs.h"
-#include <SOIL2.h>
+#define STB_IMAGE_IMPLEMENTATION
+#include <stb_image.h>
 
 TextureData AppPlatform_linux::loadTexture(const std::string &name, bool alpha) {
     std::string path = "assets/" + name;
     TextureData tex;
-    tex.pixels = SOIL_load_image((char *)path.c_str(), &tex.width, &tex.height, 0, alpha ? SOIL_LOAD_RGBA : SOIL_LOAD_RGB);
+    tex.pixels = stbi_load((char *)path.c_str(), &tex.width, &tex.height, NULL, STBI_rgb_alpha);
     return tex;
 }
 

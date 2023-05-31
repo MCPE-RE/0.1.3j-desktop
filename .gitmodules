@@ -1,9 +1,6 @@
 [submodule "glfw"]
 	path = glfw
 	url = https://github.com/glfw/glfw.git
-[submodule "SOIL2"]
-	path = SOIL2
-	url = https://github.com/SpartanJ/SOIL2.git
 [submodule "glad"]
 	path = glad
 	url = https://github.com/Dav1dde/glad.git
@@ -19,3 +16,6 @@
 [submodule "sfx"]
 	path = sfx
 	url = https://github.com/MCPE-RE/0.1.3j-sfx-archive
+[submodule "stb"]
+	path = stb
+	url = https://github.com/nothings/stb
