@@ -17,11 +17,12 @@ int main() {
     glfwWindowHint(GLFW_CLIENT_API, GLFW_OPENGL_API);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 1);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
-    #ifdef _WIN32
+#if defined(_WIN32) || defined(__APPLE__)
     glfwWindowHint(GLFW_CONTEXT_CREATION_API, GLFW_NATIVE_CONTEXT_API);
-    #else
+#else
     glfwWindowHint(GLFW_CONTEXT_CREATION_API, GLFW_EGL_CONTEXT_API);
-    #endif
+#endif
+
     window = glfwCreateWindow(720, 480, "Minecraft: Pocket Edition", NULL, NULL);
     if (!window) {
         puts("Failed to create glfw context");
