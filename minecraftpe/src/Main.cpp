@@ -45,7 +45,7 @@ int main() {
 
     app->setSize(720, 480);
 
-    while (true) {
+    while (!glfwWindowShouldClose(window)) {
         app->update();
         glfwSwapBuffers(window);
         glfwPollEvents();
