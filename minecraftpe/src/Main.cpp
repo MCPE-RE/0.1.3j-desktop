@@ -7,11 +7,12 @@
 #include "../../0.1.3j-core/src/client/gui/GuiComponent.h"
 #include "../../0.1.3j-core/src/NinecraftApp.h"
 #include "../../0.1.3j-core/src/client/input/keyboard/Keyboard.h"
+#include "../../0.1.3j-core/src/client/input/mouse/Mouse.h"
 #include "AppPlatform_linux.h"
 
 NinecraftApp *app;
 
-void keyboard_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+void keyboardCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
     if (key == GLFW_KEY_ENTER || key == GLFW_KEY_KP_ENTER) {
         if (action == GLFW_PRESS) {
             Keyboard::feed(app->options.keyMenuOk.keyCode, 1);
@@ -33,6 +34,22 @@ void keyboard_callback(GLFWwindow* window, int key, int scancode, int action, in
             Keyboard::feed(app->options.keyMenuNext.keyCode, 0);
         }
     }
+}
+
+void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods) {
+    if (button == GLFW_MOUSE_BUTTON_LEFT) {
+        double x, y;
+        glfwGetCursorPos(window, &x, &y);
+        if (action == GLFW_PRESS) {
+            Mouse::feed(1, 1, (uint16_t)x, (uint16_t)y);
+        } else if (action == GLFW_RELEASE) {
+            Mouse::feed(1, 0, (uint16_t)x, (uint16_t)y);
+        }
+    }
+}
+
+void mousePositionCallback(GLFWwindow* window, double xpos, double ypos) {
+    Mouse::feed(0, 0, (uint16_t)xpos, (uint16_t)ypos);
 }
 
 int main() {
@@ -67,7 +84,9 @@ int main() {
 
     app->setSize(720, 480);
 
-    glfwSetKeyCallback(window, keyboard_callback);
+    glfwSetKeyCallback(window, keyboardCallback);
+    glfwSetMouseButtonCallback(window, mouseButtonCallback);
+    glfwSetCursorPosCallback(window, mousePositionCallback);
 
     while (!glfwWindowShouldClose(window)) {
         app->update();
