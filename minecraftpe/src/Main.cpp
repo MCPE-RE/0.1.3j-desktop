@@ -8,6 +8,7 @@
 #include "../../0.1.3j-core/src/NinecraftApp.h"
 #include "../../0.1.3j-core/src/client/input/keyboard/Keyboard.h"
 #include "../../0.1.3j-core/src/client/input/mouse/Mouse.h"
+#include "../../0.1.3j-core/src/client/input/Multitouch.h"
 #include "AppPlatform_linux.h"
 
 NinecraftApp *app;
@@ -42,8 +43,10 @@ void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods) {
         glfwGetCursorPos(window, &x, &y);
         if (action == GLFW_PRESS) {
             Mouse::feed(1, 1, (uint16_t)x, (uint16_t)y);
+            Multitouch::feed(1, 1, (uint16_t)x, (uint16_t)y, 0);
         } else if (action == GLFW_RELEASE) {
             Mouse::feed(1, 0, (uint16_t)x, (uint16_t)y);
+            Multitouch::feed(1, 0, (uint16_t)x, (uint16_t)y, 0);
         }
     }
 }
