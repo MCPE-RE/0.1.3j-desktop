@@ -1,5 +1,4 @@
-#ifndef APPPLATFORMLINUX_H_
-#define APPPLATFORMLINUX_H_
+#pragma once
 
 #include "../../0.1.3j-core/src/AppPlatform.h"
 
@@ -11,5 +10,3 @@ public:
 
 	TextureData loadTexture(const std::string &name, bool alpha);
 };
-
-#endif
