@@ -1,0 +1,22 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "cppvsdbg",
+            "request": "launch",
+            "name": "Windows",
+            "program": "${workspaceFolder}\\build\\minecraftpe\\Debug\\minecraftpe.exe",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "cppdbg",
+            "request": "launch",
+            "name": "Posix",
+            "program": "${workspaceFolder}/build/minecraftpe/minecraftpe",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
