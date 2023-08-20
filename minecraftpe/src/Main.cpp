@@ -78,6 +78,9 @@ int main() {
         return -1;
     }
 
+    audioEngine.init();
+    audioEngine.addPath("./sfx/");
+
     AppPlatform_linux platform;
 
     AppContext context = {NULL, NULL, NULL, &platform, false};
@@ -92,8 +95,10 @@ int main() {
     glfwSetCursorPosCallback(window, mousePositionCallback);
 
     while (!glfwWindowShouldClose(window)) {
+        audioEngine.tick();
         app->update();
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
+    audioEngine.deinit();
 }

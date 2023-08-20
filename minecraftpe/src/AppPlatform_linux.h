@@ -9,4 +9,6 @@ public:
 	int getScreenWidth();
 
 	TextureData loadTexture(const std::string &name, bool alpha);
+
+    void playSound(const std::string &name, float volume, float pitch);
 };

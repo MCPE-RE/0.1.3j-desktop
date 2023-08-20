@@ -22,3 +22,7 @@ int AppPlatform_linux::getScreenWidth() {
     glfwGetWindowSize(window, &width, NULL);
     return width;
 }
+
+void AppPlatform_linux::playSound(const std::string &name, float volume, float pitch) {
+    audioEngine.play(name, volume, pitch);
+}
