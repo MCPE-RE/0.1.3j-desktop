@@ -13,26 +13,53 @@
 
 NinecraftApp *app;
 
+int32_t getKey(int key) {
+    switch (key) {
+    case GLFW_KEY_ENTER:
+    case GLFW_KEY_KP_ENTER:
+        return app->options.keyMenuOk.keyCode;
+    case GLFW_KEY_UP:
+        return app->options.keyMenuPrevious.keyCode;
+    case GLFW_KEY_DOWN:
+        return app->options.keyMenuNext.keyCode;
+    case GLFW_KEY_BACKSPACE:
+        return app->options.keyMenuCancel.keyCode;
+    case GLFW_KEY_T:
+        return app->options.keyChat.keyCode;
+    case GLFW_KEY_E:
+        return app->options.keyInventory.keyCode;
+    case GLFW_KEY_Q:
+        return app->options.keyDrop.keyCode;
+    case GLFW_KEY_W:
+        return app->options.keyForward.keyCode;
+    case GLFW_KEY_A:
+        return app->options.keyLeft.keyCode;
+    case GLFW_KEY_S:
+        return app->options.keyBack.keyCode;
+    case GLFW_KEY_D:
+        return app->options.keyRight.keyCode;
+    case GLFW_KEY_SPACE:
+        return app->options.keyJump.keyCode;
+    case GLFW_KEY_LEFT_SHIFT:
+    case GLFW_KEY_RIGHT_SHIFT:
+        return app->options.keySneak.keyCode;
+    case GLFW_KEY_F:
+        return app->options.keyFog.keyCode;
+    case GLFW_KEY_C:
+        return app->options.keyUse.keyCode;
+    case GLFW_KEY_X:
+        return app->options.keyDestory.keyCode;
+    }
+    return -1;
+}
+
 void keyboardCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
-    if (key == GLFW_KEY_ENTER || key == GLFW_KEY_KP_ENTER) {
+    int32_t mcKey = getKey(key);
+    if (mcKey != -1) {
         if (action == GLFW_PRESS) {
-            Keyboard::feed(app->options.keyMenuOk.keyCode, 1);
+            Keyboard::feed(mcKey, 1);
         } else if (action == GLFW_RELEASE) {
-            Keyboard::feed(app->options.keyMenuOk.keyCode, 0);
-        }
-    }
-    if (key == GLFW_KEY_UP) {
-        if (action == GLFW_PRESS) {
-            Keyboard::feed(app->options.keyMenuPrevious.keyCode, 1);
-        } else if (action == GLFW_RELEASE) {
-            Keyboard::feed(app->options.keyMenuPrevious.keyCode, 0);
-        }
-    }
-    if (key == GLFW_KEY_DOWN) {
-        if (action == GLFW_PRESS) {
-            Keyboard::feed(app->options.keyMenuNext.keyCode, 1);
-        } else if (action == GLFW_RELEASE) {
-            Keyboard::feed(app->options.keyMenuNext.keyCode, 0);
+            Keyboard::feed(mcKey, 0);
         }
     }
 }
