@@ -26,3 +26,7 @@ int AppPlatform_linux::getScreenWidth() {
 void AppPlatform_linux::playSound(const std::string &name, float volume, float pitch) {
     audioEngine.play(name, volume, pitch);
 }
+
+bool AppPlatform_linux::isTouchscreen() {
+	return false;
+}
