@@ -30,3 +30,13 @@ void AppPlatform_linux::playSound(const std::string &name, float volume, float p
 bool AppPlatform_linux::isTouchscreen() {
 	return false;
 }
+
+int32_t AppPlatform_linux::checkLicense() {
+    return 0;
+}
+
+bool AppPlatform_linux::hasBuyButtonWhenInvalidLicense() {
+    return false;
+}
+
+void AppPlatform_linux::buyGame() {}

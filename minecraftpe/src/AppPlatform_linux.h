@@ -13,4 +13,10 @@ public:
     void playSound(const std::string &name, float volume, float pitch);
 
     bool isTouchscreen();
+
+    int32_t checkLicense();
+
+    bool hasBuyButtonWhenInvalidLicense();
+
+    void buyGame();
 };
