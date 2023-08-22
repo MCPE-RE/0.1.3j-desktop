@@ -7,7 +7,7 @@
 
 class SoundRepo {
 private:
-    std::map<std::string, std::vector<std::string>> repository;
+    std::map<std::string, std::vector<std::string> > repository;
     Random random;
 public:
     void add(std::string resourceId, std::string resourceName);
